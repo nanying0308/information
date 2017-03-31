@@ -9,20 +9,19 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.zip.DataFormatException;
 
 /**
- * Created by lenovo on 2017/3/30.
+ * Created by llw on 2017/3/30.
  */
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = dateFormat.format(new Date());
-        req.setAttribute("currentTime",currentTime);
-        req.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(req,resp);
+        req.setAttribute("currentTime", currentTime);
+        req.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(req, resp);
 
     }
 }
