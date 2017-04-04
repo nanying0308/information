@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * create customer
  */
-@WebServlet("customer_create")
+@WebServlet("/customer_create")
 public class CustomerCreateServlet extends HttpServlet {
     /**
      * step into create customer page

@@ -1,20 +1,30 @@
 package com.awen.information.service;
 
+import com.awen.information.helper.DatabaseHelper;
 import com.awen.information.model.Customer;
+import com.awen.information.utils.PropsUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.List;
-import java.util.Map;
+import javax.naming.NamingEnumeration;
+import java.sql.*;
+import java.util.*;
 
 /**
  * Provide customer data service
  * Created by llw on 2017/3/30.
  */
 public class CustomerService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
+
     /**
      * Get customer list
      */
-    public List<Customer> getCustomerList(String keyword) {
-        return null;
+
+
+    public List<Customer> getCustomerList() {
+        String sql = "SELECT * FROM customer";
+        return DatabaseHelper.queryEntityList(Customer.class, sql);
     }
 
     /**
@@ -30,21 +40,21 @@ public class CustomerService {
      * Create customer
      */
     public boolean createCustomer(Map<String, Object> fieldMap) {
-        return false;
+        return DatabaseHelper.insertEntity(Customer.class, fieldMap);
     }
 
     /**
      * Update customer
      */
     public boolean updateCustomer(long id, Map<String, Object> fieldMap) {
-        return false;
+        return DatabaseHelper.updateEntity(Customer.class, id, fieldMap);
     }
 
     /**
      * Delete customer
      */
     public boolean deleteCustomer(long id) {
-        return false;
+        return DatabaseHelper.deleteEntity(Customer.class, id);
     }
 
 
