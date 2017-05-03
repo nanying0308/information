@@ -12,22 +12,33 @@
 <head>
     <title>客户管理</title>
 </head>
-<body>
+<style type="text/css">
+    <%--
+    body居中显示--%>
+    body {
+        text-align: center;
+    }
+</style>
+<body  bgcolor="#FAEBD7">
 <h1>客户列表</h1>
-<table>
+<table align="center" border="1">
     <tr>
+        <th>序号</th>
         <th>客户名称</th>
         <th>联系人</th>
         <th>电话号码</th>
         <th>邮箱地址</th>
+        <th>备注</th>
         <th>操作</th>
     </tr>
     <c:forEach var="customer" items="${customerList}">
         <tr>
+            <td>${customer.id}</td>
             <td>${customer.name}</td>
             <td>${customer.contact}</td>
             <td>${customer.telephone}</td>
             <td>${customer.email}</td>
+            <td>${customer.remark}</td>
             <td>
                 <a href="${BASE}/customer_edit?id=${customer.id}">编辑</a>
                 <a href="${BASE}/customer_delete?id=${customer.id}">删除</a>
